@@ -16,5 +16,10 @@ public class PlayerMovement : MonoBehaviour
     {
         Cam.transform.position = this.transform.position;
         //this.transform.Translate(0, 0, speed * Time.deltaTime);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("SA");
+        }
     }
 }
