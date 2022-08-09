@@ -13,14 +13,9 @@ public class Ball : MonoBehaviour
         _ball = this;
     }
 
-    private void Start()
-    {
-        
-    }
     private void Update()
     {
         StartCoroutine(CloseBall());
-
     }
 
     public IEnumerator CloseBall()
@@ -28,15 +23,8 @@ public class Ball : MonoBehaviour
         yield return new WaitForSeconds(3f);
         transform.position = SpawnBall.SB.player.transform.position;
         this.gameObject.SetActive(false);
-        
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
     }
-
-    /*public void ThrowBall()
-    {
-        Vector3 cubePos = new Vector3(SpawnBall.SB._cube.transform.position.x, SpawnBall.SB._cube.transform.position.y, SpawnBall.SB._cube.transform.position.z);
-        Vector3 ballForcePoint = new Vector3(cubePos.x, cubePos.y + 0.2f, cubePos.z);
-        rb.AddForce((ballForcePoint - this.transform.position) * 440f);
-        SpawnBall.SB.isShot = false;
-
-    }*/
 }

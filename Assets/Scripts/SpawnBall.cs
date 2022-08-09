@@ -52,17 +52,18 @@ public class SpawnBall : MonoBehaviour
             Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 2.5f);
             Vector3 screenTouch = Cam.ScreenToWorldPoint(mousePos);
 
-            //instantiate aim cube
+            //instantiate cube to aim position
 
-            _cube = Instantiate(cubePrefab,screenTouch,Quaternion.identity);
-            
-            /*if(_cube != null)
+            //_cube = Instantiate(cubePrefab,screenTouch,Quaternion.identity);
+
+            _cube = ObjectPool.objects.GetCubeObject();
+
+            if(_cube != null)
             {
                 Debug.Log("cube");
                 _cube.SetActive(true);
-                _cube.transform.position = screenTouch;
-                
-            }*/
+                _cube.transform.position = screenTouch;               
+            }
 
             //instantiate ball from our pos
             //GameObject ballTH = Instantiate(ball, player.transform.position, Quaternion.identity);
@@ -78,74 +79,21 @@ public class SpawnBall : MonoBehaviour
                 
             }
             
+            //throw ball player pos to cube pos
             Vector3 ballForcePoint = new Vector3(_cube.transform.position.x, _cube.transform.position.y + 0.2f, _cube.transform.position.z);
             rb = ball.GetComponent<Rigidbody>();
-            rb.AddForce((ballForcePoint - ball.transform.position) * 440f);
+            rb.AddForce((ballForcePoint - player.transform.position) * 640f);
 
 
 
-
-
-
-            //Destroy(_cube);
+            _cube.SetActive(false);
             //Destroy(ballTH, 2f);
 
-
-
-
-
-            //Vector3 screenTouch = Cam.ScreenToWorldPoint();
-
-
-            //ballTH.transform.position = new Vector3(screenTouch.x, screenTouch.y, 0);
-            //ballTH.GetComponent<Rigidbody>().AddForce(ballTH.transform.forward * force);
         }
         
     }
 
-  
-    /*bool isAttracting = false;
-    Vector2 touchPosition;
-    void Update()
-    {
-        for (int i = 0; i < Input.touchCount; i++)
-        {
-            Touch touch = Input.touches[i];
-            touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
-            Ray ray = Camera.main.ScreenPointToRay(touchPosition);
-            RaycastHit2D hit = Physics2D.Raycast(touchPosition, new Vector2(0, 0));
-            if (hit.transform != null)
-            {
-                if (hit.transform.gameObject.Equals(gameObject))
-                {
-                    isAttracting = true;
 
-                    //transform.position = touchPosition;
-                    Debug.Log("This is User Created.");
-                }
-                else
-                {
-                    isAttracting = false;
-                }
-            }
-        }
-    }
-
-    void FixedUpdate()
-    {
-        if (isAttracting) Attract(touchPosition);
-    }
-    void Attract(Vector2 target)
-    {
-        Debug.Log(rb.tag);
-        // Calculate forces
-        Vector2 direction = rb.position - target;
-        float distance = direction.magnitude;
-        Debug.Log("Distance: " + distance);
-        Vector2 force = direction.normalized * followSpeed;
-        Debug.Log("Force: " + force);
-        rb.AddForce(force);
-    }*/
 
   
 }
