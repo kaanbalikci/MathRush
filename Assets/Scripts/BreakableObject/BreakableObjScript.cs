@@ -3,37 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BreakableObjScript : MonoBehaviour
-{
+{   
     [SerializeField] private GameObject allItems;
     [SerializeField] private GameObject cube;
     [SerializeField] private GameObject piece;
+   
 
     public List<GameObject> pieces = new List<GameObject>();
 
-
-    void Update()
-    {
-       /* if (Input.GetKeyDown(KeyCode.A))
-        {
-
-            cube.SetActive(false);
-            piece.SetActive(true);
-            StartCoroutine(OpenTrigger());
-        }
-       */
-
-    }
-
+    
+    
     IEnumerator OpenTrigger()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
         for (int i = 0; i < pieces.Count; i++)
         {
             pieces[i].GetComponent<BoxCollider>().isTrigger = true;
-            Destroy(allItems,2);
+            Destroy(allItems,0.9f);
         }
         
     }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -41,8 +31,18 @@ public class BreakableObjScript : MonoBehaviour
         {
             cube.SetActive(false);
             piece.SetActive(true);
+            Destroy(this.GetComponent<BoxCollider>());
             StartCoroutine(OpenTrigger());
+            
         }
+    }
+
+    public void BreakThis()
+    {
+        cube.SetActive(false);
+        piece.SetActive(true);
+        Destroy(this.GetComponent<BoxCollider>());
+        StartCoroutine(OpenTrigger());
     }
 
 }

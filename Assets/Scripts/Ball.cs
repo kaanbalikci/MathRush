@@ -6,6 +6,7 @@ public class Ball : MonoBehaviour
 {
     public static Ball _ball;
     private Rigidbody rb;
+    [SerializeField] private LayerMask interactable;
 
     private void Awake()
     {
@@ -15,6 +16,7 @@ public class Ball : MonoBehaviour
 
     private void Update()
     {
+        LayerCheck();
         StartCoroutine(CloseBall());
     }
 
@@ -25,6 +27,20 @@ public class Ball : MonoBehaviour
         this.gameObject.SetActive(false);
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
+
+    }
+
+    private void LayerCheck()
+    {
+        Collider[] insightRange = Physics.OverlapSphere(this.transform.position, 0.5f, interactable);
+
+        if (insightRange.Length > 0)
+        {
+            if (insightRange[0].gameObject.CompareTag("GlassWall"))
+            {
+                Debug.Log("Hello");
+            }
+        }
 
     }
 }

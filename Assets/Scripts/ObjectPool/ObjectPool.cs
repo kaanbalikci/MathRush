@@ -8,14 +8,16 @@ public class ObjectPool : MonoBehaviour
 
     //BALL
     private List<GameObject> pooledObj = new List<GameObject>();
-    private int ballPoolSize = 25;
+    private int ballPoolSize = 30;
     [SerializeField] private GameObject ballPrefab;
 
     //CUBE
     private List<GameObject> cubePooledObj = new List<GameObject>();
-    private int cubePoolSize = 3;
+    private int cubePoolSize = 5;
     [SerializeField] private GameObject cubePrefab;
-    
+
+
+  
     private void Awake()
     {
         objects = this;
@@ -36,6 +38,8 @@ public class ObjectPool : MonoBehaviour
             cubeObj.SetActive(false);
             cubePooledObj.Add(cubeObj);
         }
+
+     
     }
 
     public GameObject GetObject()
@@ -63,4 +67,5 @@ public class ObjectPool : MonoBehaviour
 
         return null;
     }
+
 }

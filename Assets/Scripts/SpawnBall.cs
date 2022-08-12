@@ -1,21 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class SpawnBall : MonoBehaviour
 {
     public static SpawnBall SB;
 
-    [SerializeField] private Camera Cam;
+    //[SerializeField] private Camera Cam;
     public GameObject player;
     [SerializeField] private GameObject ball;
     [SerializeField] private GameObject cubePrefab;
-
     [HideInInspector] public GameObject _cube;
 
-    public float force = 10f;
     private Rigidbody rb;
+    private Vector3 screenTouch;
+
+    //PUBLICS---------
+    public float force = 10f;
     public bool isShot;
+    
 
     private void Awake()
     {
@@ -25,32 +29,32 @@ public class SpawnBall : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
     }
+
+    private void OnEnable()
+    {
+        CinemachineCore.CameraUpdatedEvent.RemoveListener(OnCamUpdated);
+        CinemachineCore.CameraUpdatedEvent.AddListener(OnCamUpdated);
+    }
+    private void OnDisable()
+    {
+        CinemachineCore.CameraUpdatedEvent.RemoveListener(OnCamUpdated);
+    }
+
+    private void OnCamUpdated(CinemachineBrain brain)
+    {
+        Camera Cam = brain.OutputCamera;
+
+        Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 5f);
+        screenTouch = Cam.ScreenToWorldPoint(mousePos);
+    }
     private void Update()
     {
-        /*if(Input.touchCount > 0)
-        {
-            Touch Touched = Input.GetTouch(0);
-            
-            if(Touched.phase == TouchPhase.Began)
-            {
-                Vector3 screenTouch = Cam.ScreenToWorldPoint(Touched.position);
-                //Instantiate(ball, player.transform.position, Quaternion.identity);
-                GameObject ballTH = Instantiate(ball, player.transform.position, Quaternion.identity);
-                rb = ballTH.GetComponent<Rigidbody>();
-                rb.AddForce((cube.transform.position-ballTH.transform.position) * 220f);
-                Debug.Log(Touched.position);
-
-                //cube.transform.Rotate(0, screenTouch.y, 0 , Space.Self);
-                /*ballTH.transform.position = new Vector3(screenTouch.x,screenTouch.y,0);
-                ballTH.GetComponent<Rigidbody>().AddForce(ballTH.transform.forward * force); //
-            }
-        }*/
-        
+ 
         if (Input.GetMouseButtonDown(0))
         {
             isShot = true;
-            Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 2.5f);
-            Vector3 screenTouch = Cam.ScreenToWorldPoint(mousePos);
+            /*Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 5f);
+            Vector3 screenTouch = Cam.ScreenToWorldPoint(mousePos);*/
 
             //instantiate cube to aim position
 
@@ -82,7 +86,7 @@ public class SpawnBall : MonoBehaviour
             //throw ball player pos to cube pos
             Vector3 ballForcePoint = new Vector3(_cube.transform.position.x, _cube.transform.position.y + 0.2f, _cube.transform.position.z);
             rb = ball.GetComponent<Rigidbody>();
-            rb.AddForce((ballForcePoint - player.transform.position) * 640f);
+            rb.AddForce((ballForcePoint - player.transform.position) * 400f);
 
 
 
