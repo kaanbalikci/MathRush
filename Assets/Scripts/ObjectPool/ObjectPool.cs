@@ -13,7 +13,7 @@ public class ObjectPool : MonoBehaviour
 
     //CUBE
     private List<GameObject> cubePooledObj = new List<GameObject>();
-    private int cubePoolSize = 5;
+    private int cubePoolSize = 2;
     [SerializeField] private GameObject cubePrefab;
 
 

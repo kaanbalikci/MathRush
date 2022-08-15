@@ -6,6 +6,7 @@ public class PlayerStateManager : MonoBehaviour
 {
     public bool crush;
     public GameObject Cam;
+    public GameObject followWall;
     public LayerMask interactable;
     public PlayerBaseState currentState;
     public PlayerMoveState MoveState = new PlayerMoveState();

@@ -24,6 +24,10 @@ public class BreakableObjScript : MonoBehaviour
         
     }
 
+    private void Start()
+    {
+        Destroy(this.gameObject, 30);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
