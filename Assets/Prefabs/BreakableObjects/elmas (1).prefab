@@ -1705,9 +1705,9 @@ GameObject:
   - component: {fileID: 5207715253376061537}
   - component: {fileID: 5207715253376061536}
   - component: {fileID: 5207715253376061539}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: elmas (1)
-  m_TagString: Untagged
+  m_TagString: Diamond
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -6,11 +6,13 @@ TagManager:
   tags:
   - Ball
   - GlassWall
+  - Diamond
+  - Answers
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ball
+  - Interactable
   - Water
   - UI
   - 

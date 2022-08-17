@@ -12,7 +12,7 @@ public class PlayerMoveState : PlayerBaseState
 
     public override void UpdateState(PlayerStateManager player)
     {     
-        player.transform.Translate(0, 0, speed * Time.deltaTime);
+        //player.transform.Translate(0, 0, speed * Time.deltaTime);
 
         Transform Wall = player.followWall.transform;
         player.followWall.transform.position = new Vector3(Wall.position.x, Wall.position.y, player.transform.position.z + + 100);

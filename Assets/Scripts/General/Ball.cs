@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Ball : MonoBehaviour
 {
     public static Ball _ball;
+
     private Rigidbody rb;
+
     [SerializeField] private LayerMask interactable;
+    
 
     private void Awake()
     {
@@ -16,7 +20,7 @@ public class Ball : MonoBehaviour
 
     private void Update()
     {
-        LayerCheck();
+       
         StartCoroutine(CloseBall());
     }
 
@@ -30,17 +34,15 @@ public class Ball : MonoBehaviour
 
     }
 
-    private void LayerCheck()
+
+
+    private void OnTriggerEnter(Collider other)
     {
-        Collider[] insightRange = Physics.OverlapSphere(this.transform.position, 0.5f, interactable);
-
-        if (insightRange.Length > 0)
+        if (other.gameObject.CompareTag("Diamond"))
         {
-            if (insightRange[0].gameObject.CompareTag("GlassWall"))
-            {
-                Debug.Log("Hello");
-            }
+            MathManager.MM.score += 1;
         }
-
     }
+
+  
 }

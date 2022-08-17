@@ -20,6 +20,8 @@ public abstract class PlayerBaseState
                 insightRange[0].GetComponent<BreakableObjScript>().BreakThis();
             }
         }
+
+
     }
 
     public virtual IEnumerator StartState(PlayerStateManager player)

@@ -10,6 +10,7 @@ public class PlayerStateManager : MonoBehaviour
     public LayerMask interactable;
     public PlayerBaseState currentState;
     public PlayerMoveState MoveState = new PlayerMoveState();
+    public PlayerMathState MathState = new PlayerMathState();
     public PlayerCrushState CrushState = new PlayerCrushState();
     public PlayerDieState DieState = new PlayerDieState();
 

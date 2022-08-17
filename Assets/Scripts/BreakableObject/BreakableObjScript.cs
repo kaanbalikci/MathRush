@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class BreakableObjScript : MonoBehaviour
 {   
@@ -10,9 +11,9 @@ public class BreakableObjScript : MonoBehaviour
    
 
     public List<GameObject> pieces = new List<GameObject>();
+   
 
-    
-    
+
     IEnumerator OpenTrigger()
     {
         yield return new WaitForSeconds(0.3f);
@@ -29,6 +30,12 @@ public class BreakableObjScript : MonoBehaviour
         Destroy(this.gameObject, 30);
     }
 
+    private void Update()
+    {
+        
+
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ball"))
@@ -37,7 +44,6 @@ public class BreakableObjScript : MonoBehaviour
             piece.SetActive(true);
             Destroy(this.GetComponent<BoxCollider>());
             StartCoroutine(OpenTrigger());
-            
         }
     }
 
