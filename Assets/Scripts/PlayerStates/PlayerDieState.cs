@@ -6,7 +6,7 @@ public class PlayerDieState : PlayerBaseState
 {
     public override void EnterState(PlayerStateManager player)
     {
-
+        Debug.Log("DIE STATE");
     }
 
     public override void UpdateState(PlayerStateManager player)

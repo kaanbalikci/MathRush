@@ -13,8 +13,11 @@ public class MathManager : MonoBehaviour
     public static event Action<float> UpdateTime;
 
     public int score = 0;
-    public int no;
-    private float countDown = 5;
+    [HideInInspector] public int no;
+
+    public float countDown = 5;
+
+    public string isTrue = null;
 
     [SerializeField] private TMP_Text trueAnswersText;
     [SerializeField] private TMP_Text falseAnswersText;
@@ -24,8 +27,7 @@ public class MathManager : MonoBehaviour
 
     [SerializeField] private TMP_Text question;
 
-    [SerializeField] private GameObject truePOS;
-    [SerializeField] private GameObject falsePOS;
+    
 
     //Answer Text rect transform Z pos
     private float leftZ = -4.347f;
@@ -38,14 +40,12 @@ public class MathManager : MonoBehaviour
     private GameObject trueA;
     private GameObject falseA;
 
+
     private void Awake()
     {
         MM = this;
     }
-    void Start()
-    {
-        EasyQuestion();
-    }
+
 
   
     void Update()
@@ -61,9 +61,6 @@ public class MathManager : MonoBehaviour
 
         }
         UpdateTime?.Invoke(countDown);
-
-        
-
 
 
     }
@@ -86,9 +83,6 @@ public class MathManager : MonoBehaviour
         trueAnswersText.text = lastAnswer.ToString();
         falseAnswersText.text = lastFalseAnswer.ToString();
         question.text = firstNumber.ToString() + " x " + secondNumber.ToString();
-
-
-
     }
 
     private void SpawnAnswerObj()

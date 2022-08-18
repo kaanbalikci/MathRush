@@ -6,9 +6,15 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private TMP_Text scoreText;
+    public static UIManager UI;
+
+    public TMP_Text scoreText;
     [SerializeField] private TMP_Text countDownText;
 
+    private void Awake()
+    {
+        UI = this;
+    }
     private void OnEnable()
     {
         MathManager.UpdateTime += CountDownTime;

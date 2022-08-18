@@ -10,7 +10,8 @@ public class Ball : MonoBehaviour
     private Rigidbody rb;
 
     [SerializeField] private LayerMask interactable;
-    
+
+    public bool canDestroyAnswer;
 
     private void Awake()
     {
@@ -42,6 +43,23 @@ public class Ball : MonoBehaviour
         {
             MathManager.MM.score += 1;
         }
+
+        if (other.gameObject.CompareTag("Answers"))
+        {
+            if(other.GetComponent<Answers>().answerNo == 0)
+            {
+               
+                MathManager.MM.isTrue = "True";
+            }
+            else
+            {
+               
+                MathManager.MM.isTrue = "False";
+            }
+
+            Answers.ans.CloseCollider();
+        }
+
     }
 
   
