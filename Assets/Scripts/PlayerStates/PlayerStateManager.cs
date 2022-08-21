@@ -7,9 +7,11 @@ public class PlayerStateManager : MonoBehaviour
     public bool crush;
     public GameObject Cam;
     public GameObject followWall;
+    public GameObject mathRoom;
     public Transform playerLastPOS;
     public LayerMask interactable;
     public PlayerBaseState currentState;
+    public PlayerIdleState idleState = new PlayerIdleState();
     public PlayerMoveState MoveState = new PlayerMoveState();
     public PlayerMathState MathState = new PlayerMathState();
     public PlayerCrushState CrushState = new PlayerCrushState();
@@ -29,6 +31,7 @@ public class PlayerStateManager : MonoBehaviour
     void Update()
     {
         currentState.UpdateState(this);
+        
     }
 
     public void SwitchState(PlayerBaseState state)

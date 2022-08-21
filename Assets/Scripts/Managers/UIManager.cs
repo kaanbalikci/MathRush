@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     public static UIManager UI;
 
     public TMP_Text scoreText;
-    [SerializeField] private TMP_Text countDownText;
+    public TMP_Text countDownText;
 
     private void Awake()
     {
@@ -37,4 +37,5 @@ public class UIManager : MonoBehaviour
         countDownText.text = Mathf.FloorToInt(CountTime).ToString();
     }
    
+
 }

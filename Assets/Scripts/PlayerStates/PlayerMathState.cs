@@ -4,42 +4,77 @@ using UnityEngine;
 
 public class PlayerMathState : PlayerBaseState
 {
-    private float time = 5;
-    private Vector3 answerPOS = new Vector3(-77.6f, 11.95f, -65.8f);
-
-
+    
     public override void EnterState(PlayerStateManager player)
-    {
-        player.transform.position = answerPOS;
-        player.Cam.transform.Rotate(0, -90, 0);
-        UIManager.UI.scoreText.gameObject.SetActive(false);
-        MathManager.MM.countDown = 5;
-
-        if(MathManager.MM.score / 20 == 1 || MathManager.MM.score / 20 == 2)
+    {             
+        if(MathManager.MM.score / 20 == 1)
         {
-            Debug.Log("EASY GIRDI");
+            MathManager.MM.countDown = 6;
             MathManager.MM.EasyQuestion();
+        }
+        else if (MathManager.MM.score / 20 == 2)
+        {
+            MathManager.MM.countDown = 6;
+            MathManager.MM.MediumQuestion();
+        }
+        else if(MathManager.MM.score / 20 == 3)
+        {
+            MathManager.MM.countDown = 6;
+            MathManager.MM.HardQuestion();
+        }
+        else if(MathManager.MM.score / 20 == 4)
+        {
+            MathManager.MM.countDown = 8;
+            MathManager.MM.ExpertQuestion();
+        }
+        else if(MathManager.MM.score / 20 >= 5)
+        {
+            MathManager.MM.countDown = 10;
+            MathManager.MM.DoubleExpertQuestion();
         }
     }
     
     public override void UpdateState(PlayerStateManager player)
     {
-        if(Mathf.FloorToInt(MathManager.MM.countDown) == 0 )
-        {
-  
-        }
+        int checkCount = Mathf.FloorToInt(MathManager.MM.countDown);
 
         if (MathManager.MM.isTrue == "True")
         {
-            MathManager.MM.score += 15;
+            MathManager.MM.isPlus = true;
+            MathManager.MM.isPlayAnim = true;
+            MathManager.MM.score += 2;
             player.Cam.transform.Rotate(0, 90, 0);
             player.SwitchState(player.MoveState);
         }
-        else if (MathManager.MM.isTrue == "False")
+        else if (MathManager.MM.isTrue == "False" || checkCount == 0)
         {
-            player.SwitchState(player.DieState);
+            if(MathManager.MM.score - 10 > 0)
+            {
+                MathManager.MM.isPlayAnim = true;
+                MathManager.MM.isPlayCrush = true;
+                MathManager.MM.damageScreen.SetActive(true);
+                MathManager.MM.score -= 10;
+                player.Cam.transform.Rotate(0, 90, 0);
+                player.SwitchState(player.MoveState);
+            }
+            else
+            {
+                player.SwitchState(player.DieState);
+            }       
         }
 
         MathManager.MM.isTrue = null;
+
+      
+    }
+
+    public override IEnumerator StartState(PlayerStateManager player)
+    {
+
+        yield return new WaitForSeconds(0.4f);
+        player.transform.position = new Vector3(-77.6f, 11.95f, player.transform.position.z);
+        player.Cam.transform.Rotate(0, -90, 0);
+        UIManager.UI.scoreText.gameObject.SetActive(false);
+        
     }
 }

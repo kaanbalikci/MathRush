@@ -21,13 +21,14 @@ public class MapGenerator : MonoBehaviour
     
 
 
+
     void Update()
     {
         SpawnNewPlane();
 
         SpawnNewGlass();
 
-        if(diaSpawnTime == 0) { SpawnNewDiamond(); }
+        if (diaSpawnTime == 0) { SpawnNewDiamond(); }
        
 
         if (spawnTime > 0)
@@ -70,7 +71,7 @@ public class MapGenerator : MonoBehaviour
         {
             GameObject newObj = Instantiate(glass[whichGlass], glassSpawnPos, Quaternion.identity);
             newObj.transform.Rotate(0, 90, 0);
-            spawnTime = 4f;
+            spawnTime = 3.3f;
         }
             
     }
@@ -86,7 +87,7 @@ public class MapGenerator : MonoBehaviour
 
             Vector3 checkPos = new Vector3(Random.Range(-7f, -2f), Diamond[whichDia].transform.position.y, player.transform.position.z + 110);
             Instantiate(Diamond[whichDia], checkPos, Quaternion.identity);
-            diaSpawnTime = 3;
+            diaSpawnTime = 1.5f;
 
         }
 
@@ -94,7 +95,7 @@ public class MapGenerator : MonoBehaviour
         {
             Vector3 checkPos = new Vector3(Random.Range(7f, 2f), Diamond[whichDia].transform.position.y, player.transform.position.z + 110);
             Instantiate(Diamond[whichDia], checkPos, Quaternion.identity);
-            diaSpawnTime = 3;
+            diaSpawnTime = 1.5f;
         }
     }
 

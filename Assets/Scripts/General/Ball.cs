@@ -21,7 +21,6 @@ public class Ball : MonoBehaviour
 
     private void Update()
     {
-       
         StartCoroutine(CloseBall());
     }
 
@@ -41,7 +40,7 @@ public class Ball : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Diamond"))
         {
-            MathManager.MM.score += 1;
+            MathManager.MM.score += 2;
         }
 
         if (other.gameObject.CompareTag("Answers"))
@@ -57,7 +56,6 @@ public class Ball : MonoBehaviour
                 MathManager.MM.isTrue = "False";
             }
 
-            Answers.ans.CloseCollider();
         }
 
     }
