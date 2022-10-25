@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6994176992313766349}
   - component: {fileID: 6994176992313766348}
   - component: {fileID: 6994176992313766347}
+  - component: {fileID: 5001286657157335640}
   m_Layer: 3
   m_Name: glass-1
   m_TagString: GlassWall
@@ -76,8 +77,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.22135852, y: 2.7823398, z: 0.4830471}
-  m_Center: {x: 0.016227575, y: -0.010205029, z: 0.0034900792}
+  m_Size: {x: 0.60450083, y: 2.78234, z: 0.4830473}
+  m_Center: {x: -0.16477075, y: -0.010205043, z: 0.0034900792}
 --- !u!54 &6994176992313766347
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -94,6 +95,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5001286657157335640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6994176992313766350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f325a5d0b5d1fd46a1d373b3ce93bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allObjectSpeed: 5
 --- !u!1 &7234755222980944808
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,8 +6,10 @@ public class PlayerStateManager : MonoBehaviour
 {
     public bool crush;
     public GameObject Cam;
-    public GameObject followWall;
+    //public GameObject followWall;
+    public int successScore = 3;
     public GameObject mathRoom;
+    public GameObject clearArea;
     public Transform playerLastPOS;
     public LayerMask interactable;
     public PlayerBaseState currentState;

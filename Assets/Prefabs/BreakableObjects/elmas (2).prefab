@@ -653,6 +653,7 @@ GameObject:
   - component: {fileID: 1762391460828112815}
   - component: {fileID: 1762391460828112808}
   - component: {fileID: 1762391460828112809}
+  - component: {fileID: 3364140888831367227}
   m_Layer: 3
   m_Name: elmas (2)
   m_TagString: Diamond
@@ -720,6 +721,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.1307588, y: 2.8570023, z: 1.9833151}
   m_Center: {x: 0.078858666, y: 2.5524263, z: 0.111165}
+--- !u!114 &3364140888831367227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762391460828112810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f325a5d0b5d1fd46a1d373b3ce93bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allObjectSpeed: 5
 --- !u!1 &1762391460886963154
 GameObject:
   m_ObjectHideFlags: 0

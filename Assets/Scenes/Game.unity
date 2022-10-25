@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 74005dd15a4988c40bdb3389c9172b1b, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -712,6 +712,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2484574744710923735, guid: 21f58e20e5e51cb46a57b5cd1689fa00, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484574744710923735, guid: 21f58e20e5e51cb46a57b5cd1689fa00, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484574744710923735, guid: 21f58e20e5e51cb46a57b5cd1689fa00, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.062
+      objectReference: {fileID: 0}
     - target: {fileID: 2484574745940733084, guid: 21f58e20e5e51cb46a57b5cd1689fa00, type: 3}
       propertyPath: m_Name
       value: False Answer
@@ -722,7 +734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2484574745940733085, guid: 21f58e20e5e51cb46a57b5cd1689fa00, type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2484574745940733085, guid: 21f58e20e5e51cb46a57b5cd1689fa00, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2313,7 +2325,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &124008356
 GameObject:
@@ -2585,7 +2597,7 @@ Transform:
   m_Children:
   - {fileID: 322150316}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &127516649
 Rigidbody:
@@ -2617,8 +2629,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crush: 0
   Cam: {fileID: 1953857896}
-  followWall: {fileID: 1146420747}
+  successScore: 4
   mathRoom: {fileID: 1872175347}
+  clearArea: {fileID: 1372106738}
   playerLastPOS: {fileID: 121039163}
   interactable:
     serializedVersion: 2
@@ -2662,8 +2675,14 @@ Transform:
   - {fileID: 1431377811}
   - {fileID: 1372719717}
   - {fileID: 497150298}
+  - {fileID: 543450652354665531}
+  - {fileID: 1279389297687760339}
+  - {fileID: 3284926390940370384}
+  - {fileID: 7560265818499999815}
+  - {fileID: 1779802267}
+  - {fileID: 1665068796}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &140993640
 GameObject:
@@ -3167,7 +3186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2549fd6d96e9d3449bfaf38af8aed46f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 19
+  score: 78
   no: 0
   countDown: 5
   isTrue: 
@@ -3191,6 +3210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 170929213}
+  - component: {fileID: 170929214}
   m_Layer: 0
   m_Name: Diamond
   m_TagString: Untagged
@@ -3214,6 +3234,25 @@ Transform:
   m_Father: {fileID: 2000588348}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &170929214
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170929212}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c154ca08074b6c14583bb375a2df0dce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &171567429
 GameObject:
   m_ObjectHideFlags: 0
@@ -3276,7 +3315,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 616509112}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3941,6 +3980,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 245721092}
+  - component: {fileID: 245721093}
   m_Layer: 0
   m_Name: Diamond
   m_TagString: Untagged
@@ -3964,6 +4004,25 @@ Transform:
   m_Father: {fileID: 909437008}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &245721093
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245721091}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c154ca08074b6c14583bb375a2df0dce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &248587754
 GameObject:
   m_ObjectHideFlags: 0
@@ -4385,6 +4444,7 @@ GameObject:
   - component: {fileID: 306930737}
   - component: {fileID: 306930739}
   - component: {fileID: 306930738}
+  - component: {fileID: 306930740}
   m_Layer: 3
   m_Name: elmas (9)
   m_TagString: Diamond
@@ -4452,6 +4512,19 @@ MonoBehaviour:
   - {fileID: 502116038}
   - {fileID: 827945872}
   - {fileID: 1622129789}
+--- !u!114 &306930740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306930736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f325a5d0b5d1fd46a1d373b3ce93bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allObjectSpeed: 6
 --- !u!1 &309958984
 GameObject:
   m_ObjectHideFlags: 3
@@ -5602,6 +5675,7 @@ GameObject:
   - component: {fileID: 362470498}
   - component: {fileID: 362470500}
   - component: {fileID: 362470499}
+  - component: {fileID: 362470501}
   m_Layer: 3
   m_Name: elmas (13)
   m_TagString: Diamond
@@ -5669,6 +5743,19 @@ MonoBehaviour:
   - {fileID: 605075479}
   - {fileID: 2033792751}
   - {fileID: 1922120960}
+--- !u!114 &362470501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362470497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f325a5d0b5d1fd46a1d373b3ce93bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allObjectSpeed: 6
 --- !u!1 &365002783
 GameObject:
   m_ObjectHideFlags: 0
@@ -7062,6 +7149,7 @@ GameObject:
   - component: {fileID: 497150298}
   - component: {fileID: 497150300}
   - component: {fileID: 497150299}
+  - component: {fileID: 497150301}
   m_Layer: 3
   m_Name: elmas (18)
   m_TagString: Diamond
@@ -7129,6 +7217,19 @@ MonoBehaviour:
   - {fileID: 1405058986}
   - {fileID: 922110804}
   - {fileID: 1243887952}
+--- !u!114 &497150301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497150297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f325a5d0b5d1fd46a1d373b3ce93bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allObjectSpeed: 6
 --- !u!1 &502116038
 GameObject:
   m_ObjectHideFlags: 0
@@ -8260,6 +8361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50aba3462f22fef46b0e9a5bb9247cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cam: {fileID: 963194227}
   player: {fileID: 127516646}
   ball: {fileID: 230764843494817574, guid: 841deb4c2d703f343bebdf04ad11ab16, type: 3}
   cubePrefab: {fileID: 8973915387591405163, guid: d5f46ba923491c245bb6985279a6e448, type: 3}
@@ -9062,11 +9164,9 @@ RectTransform:
   - {fileID: 1594378302}
   - {fileID: 446713280}
   - {fileID: 155397899}
-  - {fileID: 1887481249}
-  - {fileID: 921944312}
   - {fileID: 173308813}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -11043,6 +11143,7 @@ GameObject:
   - component: {fileID: 790567196}
   - component: {fileID: 790567198}
   - component: {fileID: 790567197}
+  - component: {fileID: 790567199}
   m_Layer: 3
   m_Name: elmas (15)
   m_TagString: Diamond
@@ -11110,6 +11211,19 @@ MonoBehaviour:
   - {fileID: 1409463072}
   - {fileID: 175201605}
   - {fileID: 271667211}
+--- !u!114 &790567199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790567195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f325a5d0b5d1fd46a1d373b3ce93bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allObjectSpeed: 6
 --- !u!1 &791154520
 GameObject:
   m_ObjectHideFlags: 0
@@ -12419,6 +12533,7 @@ GameObject:
   - component: {fileID: 846649059}
   - component: {fileID: 846649061}
   - component: {fileID: 846649060}
+  - component: {fileID: 846649062}
   m_Layer: 3
   m_Name: elmas (10)
   m_TagString: Diamond
@@ -12486,6 +12601,19 @@ MonoBehaviour:
   - {fileID: 34868511}
   - {fileID: 2033717355}
   - {fileID: 1034852016}
+--- !u!114 &846649062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846649058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f325a5d0b5d1fd46a1d373b3ce93bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allObjectSpeed: 6
 --- !u!1 &848849973
 GameObject:
   m_ObjectHideFlags: 0
@@ -12610,6 +12738,7 @@ GameObject:
   - component: {fileID: 852918923}
   - component: {fileID: 852918922}
   - component: {fileID: 852918921}
+  - component: {fileID: 852918925}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -12693,6 +12822,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &852918925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852918920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f325a5d0b5d1fd46a1d373b3ce93bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allObjectSpeed: 6
 --- !u!1 &854039970
 GameObject:
   m_ObjectHideFlags: 0
@@ -13601,6 +13743,7 @@ GameObject:
   - component: {fileID: 909437008}
   - component: {fileID: 909437010}
   - component: {fileID: 909437009}
+  - component: {fileID: 909437011}
   m_Layer: 3
   m_Name: elmas (4)
   m_TagString: Diamond
@@ -13668,6 +13811,19 @@ MonoBehaviour:
   - {fileID: 1282028476}
   - {fileID: 2059605476}
   - {fileID: 1381348031}
+--- !u!114 &909437011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909437007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f325a5d0b5d1fd46a1d373b3ce93bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allObjectSpeed: 6
 --- !u!1 &911787535
 GameObject:
   m_ObjectHideFlags: 0
@@ -13806,16 +13962,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 921944311}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 616509112}
-  m_RootOrder: 4
+  m_Father: {fileID: 1594378302}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 162, y: 1610}
+  m_AnchoredPosition: {x: 162, y: 206.13269}
   m_SizeDelta: {x: 208, y: 132.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &921944313
@@ -14325,6 +14481,7 @@ GameObject:
   - component: {fileID: 948200249}
   - component: {fileID: 948200251}
   - component: {fileID: 948200250}
+  - component: {fileID: 948200252}
   m_Layer: 3
   m_Name: elmas (8)
   m_TagString: Diamond
@@ -14392,6 +14549,19 @@ MonoBehaviour:
   - {fileID: 1461751471}
   - {fileID: 46601805}
   - {fileID: 775884509}
+--- !u!114 &948200252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948200248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f325a5d0b5d1fd46a1d373b3ce93bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allObjectSpeed: 6
 --- !u!1 &949576410
 GameObject:
   m_ObjectHideFlags: 0
@@ -14745,6 +14915,7 @@ GameObject:
   - component: {fileID: 963384583}
   - component: {fileID: 963384585}
   - component: {fileID: 963384584}
+  - component: {fileID: 963384586}
   m_Layer: 3
   m_Name: elmas (5)
   m_TagString: Diamond
@@ -14812,6 +14983,19 @@ MonoBehaviour:
   - {fileID: 1724580851}
   - {fileID: 2022079565}
   - {fileID: 1164523018}
+--- !u!114 &963384586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963384582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f325a5d0b5d1fd46a1d373b3ce93bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allObjectSpeed: 6
 --- !u!1 &967081459
 GameObject:
   m_ObjectHideFlags: 0
@@ -15576,6 +15760,7 @@ GameObject:
   - component: {fileID: 1026319716}
   - component: {fileID: 1026319718}
   - component: {fileID: 1026319717}
+  - component: {fileID: 1026319719}
   m_Layer: 3
   m_Name: elmas (12)
   m_TagString: Diamond
@@ -15643,6 +15828,19 @@ MonoBehaviour:
   - {fileID: 1467632820}
   - {fileID: 1102393609}
   - {fileID: 1292042343}
+--- !u!114 &1026319719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026319715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f325a5d0b5d1fd46a1d373b3ce93bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allObjectSpeed: 6
 --- !u!1 &1034852016
 GameObject:
   m_ObjectHideFlags: 0
@@ -16468,7 +16666,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1102393609
 GameObject:
@@ -16962,11 +17160,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146420747}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4, y: 44.7, z: 31.5}
-  m_LocalScale: {x: 86.49328, y: 76.10288, z: 1.302342}
+  m_LocalPosition: {x: 0.4, y: 46.6, z: 31.5}
+  m_LocalScale: {x: 155.8436, y: 106.84845, z: 1.302342}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1149457207
 GameObject:
@@ -20255,7 +20453,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1339807421
 GameObject:
@@ -21072,6 +21270,80 @@ Transform:
   m_Father: {fileID: 909437008}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1372106738
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1372106742}
+  - component: {fileID: 1372106741}
+  - component: {fileID: 1372106740}
+  - component: {fileID: 1372106739}
+  m_Layer: 0
+  m_Name: CleanArea
+  m_TagString: Ball
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1372106739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372106738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5070f5d645004754fa25af3e0d85ab0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &1372106740
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372106738}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!65 &1372106741
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372106738}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1372106742
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372106738}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 11, z: -54}
+  m_LocalScale: {x: 21.025885, y: 21.025885, z: 35.184223}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1372719716
 GameObject:
   m_ObjectHideFlags: 0
@@ -21083,6 +21355,7 @@ GameObject:
   - component: {fileID: 1372719717}
   - component: {fileID: 1372719719}
   - component: {fileID: 1372719718}
+  - component: {fileID: 1372719720}
   m_Layer: 3
   m_Name: elmas (17)
   m_TagString: Diamond
@@ -21150,6 +21423,19 @@ MonoBehaviour:
   - {fileID: 1624915170}
   - {fileID: 1022929366}
   - {fileID: 1184393003}
+--- !u!114 &1372719720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372719716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f325a5d0b5d1fd46a1d373b3ce93bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allObjectSpeed: 6
 --- !u!1 &1379559107
 GameObject:
   m_ObjectHideFlags: 0
@@ -21195,8 +21481,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnTime: 0
   diaSpawnTime: 0
+  canSpawn: 0
   plane: {fileID: 852918920}
-  player: {fileID: 127516648}
+  player: {fileID: 121039163}
   glass:
   - {fileID: 6994176992313766350, guid: a465ba56571909248adb5c4da3d2bd75, type: 3}
   - {fileID: 8896217950821730657, guid: df25e437a7396de43bb69023486a5649, type: 3}
@@ -22193,6 +22480,7 @@ GameObject:
   - component: {fileID: 1431377811}
   - component: {fileID: 1431377813}
   - component: {fileID: 1431377812}
+  - component: {fileID: 1431377814}
   m_Layer: 3
   m_Name: elmas (16)
   m_TagString: Diamond
@@ -22260,6 +22548,19 @@ MonoBehaviour:
   - {fileID: 1356566947}
   - {fileID: 339421556}
   - {fileID: 2131700005}
+--- !u!114 &1431377814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431377810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f325a5d0b5d1fd46a1d373b3ce93bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allObjectSpeed: 6
 --- !u!1 &1452980068
 GameObject:
   m_ObjectHideFlags: 0
@@ -24409,7 +24710,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6866841523383154539, guid: 7d7e7823bad183b4889c1e95ecb2a603, type: 3}
       propertyPath: m_RootOrder
-      value: 22
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6866841523383154539, guid: 7d7e7823bad183b4889c1e95ecb2a603, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24593,14 +24894,16 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1887481249}
+  - {fileID: 921944312}
   m_Father: {fileID: 616509112}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -303.2}
-  m_SizeDelta: {x: 772.2, y: 202.5}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 1319}
+  m_SizeDelta: {x: 772.19995, y: 202.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1594378303
 MonoBehaviour:
@@ -25769,6 +26072,7 @@ GameObject:
   - component: {fileID: 1665068796}
   - component: {fileID: 1665068795}
   - component: {fileID: 1665068794}
+  - component: {fileID: 1665068797}
   m_Layer: 3
   m_Name: elmas (2)
   m_TagString: Diamond
@@ -25826,16 +26130,29 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1665068793}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.8, y: 9.74, z: -43.04}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -41.824352, y: 38.357056, z: 8.935406}
   m_LocalScale: {x: 0.37112832, y: 0.37112832, z: 0.37112832}
   m_Children:
   - {fileID: 1386430759}
   - {fileID: 710421531}
   - {fileID: 888828429}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 135808753}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1665068797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665068793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f325a5d0b5d1fd46a1d373b3ce93bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allObjectSpeed: 6
 --- !u!1 &1665833322
 GameObject:
   m_ObjectHideFlags: 0
@@ -27083,7 +27400,7 @@ Transform:
   - {fileID: 837802954}
   - {fileID: 165230872}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1760793837
 GameObject:
@@ -27706,6 +28023,7 @@ GameObject:
   - component: {fileID: 1779802267}
   - component: {fileID: 1779802266}
   - component: {fileID: 1779802265}
+  - component: {fileID: 1779802268}
   m_Layer: 3
   m_Name: elmas (1)
   m_TagString: Diamond
@@ -27763,16 +28081,29 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779802264}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.56, y: 10.8, z: -47.94}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -40.06435, y: 39.417057, z: 4.035408}
   m_LocalScale: {x: 0.37112832, y: 0.37112832, z: 0.37112832}
   m_Children:
   - {fileID: 862108074}
   - {fileID: 626676197}
   - {fileID: 236082113}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 135808753}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1779802268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779802264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f325a5d0b5d1fd46a1d373b3ce93bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allObjectSpeed: 6
 --- !u!1 &1781776284
 GameObject:
   m_ObjectHideFlags: 0
@@ -28989,7 +29320,7 @@ Transform:
   - {fileID: 1008826890}
   - {fileID: 394902680}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1872374267
 GameObject:
@@ -29285,16 +29616,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887481248}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 616509112}
-  m_RootOrder: 3
+  m_Father: {fileID: 1594378302}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -187, y: 1610}
+  m_AnchoredPosition: {x: -187, y: 206.13269}
   m_SizeDelta: {x: 208.69, y: 127.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1887481250
@@ -30825,6 +31156,7 @@ GameObject:
   - component: {fileID: 2000588348}
   - component: {fileID: 2000588350}
   - component: {fileID: 2000588349}
+  - component: {fileID: 2000588351}
   m_Layer: 3
   m_Name: elmas (3)
   m_TagString: Diamond
@@ -30892,6 +31224,19 @@ MonoBehaviour:
   - {fileID: 456795735}
   - {fileID: 893422906}
   - {fileID: 344861678}
+--- !u!114 &2000588351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000588347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f325a5d0b5d1fd46a1d373b3ce93bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allObjectSpeed: 6
 --- !u!1 &2003333190
 GameObject:
   m_ObjectHideFlags: 0
@@ -33472,13 +33817,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148353304193}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.06, y: 11, z: -0.2}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -45.684353, y: 39.617058, z: 51.775406}
   m_LocalScale: {x: 1.8573, y: 1.2393392, z: 1.8573}
   m_Children:
   - {fileID: 3745622627007383390}
   - {fileID: 1990706188}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 135808753}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &553659285447159859
@@ -33697,6 +34042,7 @@ GameObject:
   - component: {fileID: 919132148353304194}
   - component: {fileID: 919132148353304195}
   - component: {fileID: 919132148353304196}
+  - component: {fileID: 919132148353304197}
   m_Layer: 3
   m_Name: glass-1
   m_TagString: GlassWall
@@ -33763,6 +34109,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &919132148353304197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148353304193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f325a5d0b5d1fd46a1d373b3ce93bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allObjectSpeed: 6
 --- !u!23 &967448065056709835
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34274,13 +34633,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8930743073050946833}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.06, y: 11, z: -25}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -45.684353, y: 39.617058, z: 26.975407}
   m_LocalScale: {x: 1.8573, y: 1.8573, z: 1.8573}
   m_Children:
   - {fileID: 7055391568514770274}
   - {fileID: 1121369779956266858}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 135808753}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!65 &1313810207724797312
@@ -35487,13 +35846,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8040153985608192822}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.06, y: 11, z: -59.54}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -45.684353, y: 39.617058, z: -7.5645943}
   m_LocalScale: {x: 1.8573, y: 1.8573, z: 1.8573}
   m_Children:
   - {fileID: 4241643918116018388}
   - {fileID: 3575757379191433938}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 135808753}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &3300070724598251826
@@ -38652,6 +39011,7 @@ GameObject:
   - component: {fileID: 7560265818499999815}
   - component: {fileID: 7178919329290269438}
   - component: {fileID: 713865496}
+  - component: {fileID: 7178919329290269439}
   m_Layer: 3
   m_Name: elmas
   m_TagString: Diamond
@@ -38689,6 +39049,19 @@ MonoBehaviour:
   - {fileID: 431123509654894816}
   - {fileID: 2263441088642183227}
   - {fileID: 2312653459162341830}
+--- !u!114 &7178919329290269439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7178919329290269437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f325a5d0b5d1fd46a1d373b3ce93bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allObjectSpeed: 6
 --- !u!23 &7226988379193171929
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -38946,14 +39319,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7178919329290269437}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.57, y: 9.71, z: -57.06}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -42.05435, y: 38.327057, z: -5.0845947}
   m_LocalScale: {x: 0.37112832, y: 0.37112832, z: 0.37112832}
   m_Children:
   - {fileID: 1615841084}
   - {fileID: 112045309}
   - {fileID: 1717631903}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 135808753}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7566905255640295262
@@ -39163,6 +39536,7 @@ GameObject:
   - component: {fileID: 5444209148307096573}
   - component: {fileID: 4793713193611433020}
   - component: {fileID: 662320301321101895}
+  - component: {fileID: 8040153985608192823}
   m_Layer: 3
   m_Name: glass-3
   m_TagString: GlassWall
@@ -39170,6 +39544,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8040153985608192823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8040153985608192822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f325a5d0b5d1fd46a1d373b3ce93bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allObjectSpeed: 6
 --- !u!33 &8067066300191329241
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -39582,6 +39969,7 @@ GameObject:
   - component: {fileID: 5001569378957434778}
   - component: {fileID: 4976429028616497320}
   - component: {fileID: 5684297600403139486}
+  - component: {fileID: 8930743073050946834}
   m_Layer: 3
   m_Name: glass-2
   m_TagString: GlassWall
@@ -39589,6 +39977,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8930743073050946834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8930743073050946833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f325a5d0b5d1fd46a1d373b3ce93bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allObjectSpeed: 6
 --- !u!4 &8967087635824526864
 Transform:
   m_ObjectHideFlags: 0

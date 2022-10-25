@@ -6,6 +6,7 @@ public class MapGenerator : MonoBehaviour
 {
     public float spawnTime = 0;
     public float diaSpawnTime = 0;
+    public bool canSpawn;
 
     //Plane
     [SerializeField] private GameObject plane;
@@ -66,13 +67,18 @@ public class MapGenerator : MonoBehaviour
         Vector3 glassSpawnPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z + 110);
         whichGlass = Random.Range(0, glass.Length);
 
-
-        if(((int)player.transform.position.z) % 70 == 0 && spawnTime == 0)
+        if(spawnTime == 0)
         {
             GameObject newObj = Instantiate(glass[whichGlass], glassSpawnPos, Quaternion.identity);
             newObj.transform.Rotate(0, 90, 0);
             spawnTime = 3.3f;
         }
+        /*if(((int)player.transform.position.z) % 70 == 0 && spawnTime == 0)
+        {
+            GameObject newObj = Instantiate(glass[whichGlass], glassSpawnPos, Quaternion.identity);
+            newObj.transform.Rotate(0, 90, 0);
+            spawnTime = 3.3f;
+        }*/
             
     }
     
@@ -87,7 +93,7 @@ public class MapGenerator : MonoBehaviour
 
             Vector3 checkPos = new Vector3(Random.Range(-7f, -2f), Diamond[whichDia].transform.position.y, player.transform.position.z + 110);
             Instantiate(Diamond[whichDia], checkPos, Quaternion.identity);
-            diaSpawnTime = 1.5f;
+            diaSpawnTime = 1f;
 
         }
 
@@ -95,7 +101,7 @@ public class MapGenerator : MonoBehaviour
         {
             Vector3 checkPos = new Vector3(Random.Range(7f, 2f), Diamond[whichDia].transform.position.y, player.transform.position.z + 110);
             Instantiate(Diamond[whichDia], checkPos, Quaternion.identity);
-            diaSpawnTime = 1.5f;
+            diaSpawnTime = 1f;
         }
     }
 

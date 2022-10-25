@@ -6,30 +6,32 @@ public class PlayerMathState : PlayerBaseState
 {
     
     public override void EnterState(PlayerStateManager player)
-    {             
-        if(MathManager.MM.score / 20 == 1)
+    {
+        ObjectSpeed.OS.allObjectSpeed = 0f;
+
+        if (MathManager.MM.score / 20 == 1 || MathManager.MM.score / 20 == 2)
         {
             MathManager.MM.countDown = 6;
             MathManager.MM.EasyQuestion();
         }
-        else if (MathManager.MM.score / 20 == 2)
+        else if (MathManager.MM.score / 20 == 3 || MathManager.MM.score / 20 == 4)
         {
             MathManager.MM.countDown = 6;
             MathManager.MM.MediumQuestion();
         }
-        else if(MathManager.MM.score / 20 == 3)
+        else if(MathManager.MM.score / 20 == 5 || MathManager.MM.score / 20 == 6)
         {
             MathManager.MM.countDown = 6;
             MathManager.MM.HardQuestion();
         }
-        else if(MathManager.MM.score / 20 == 4)
-        {
-            MathManager.MM.countDown = 8;
-            MathManager.MM.ExpertQuestion();
-        }
-        else if(MathManager.MM.score / 20 >= 5)
+        else if(MathManager.MM.score / 20 == 7 || MathManager.MM.score / 20 == 8)
         {
             MathManager.MM.countDown = 10;
+            MathManager.MM.ExpertQuestion();
+        }
+        else if(MathManager.MM.score / 20 >= 9)
+        {
+            MathManager.MM.countDown = 20;
             MathManager.MM.DoubleExpertQuestion();
         }
     }
@@ -48,6 +50,7 @@ public class PlayerMathState : PlayerBaseState
         }
         else if (MathManager.MM.isTrue == "False" || checkCount == 0)
         {
+            player.successScore--;
             if(MathManager.MM.score - 10 > 0)
             {
                 MathManager.MM.isPlayAnim = true;

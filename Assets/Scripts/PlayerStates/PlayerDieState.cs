@@ -6,6 +6,7 @@ public class PlayerDieState : PlayerBaseState
 {
     public override void EnterState(PlayerStateManager player)
     {
+        Debug.Log("Die");
         CameraShake.instance.ShakeCam(20, 1f);
        
     }

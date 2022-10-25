@@ -7,7 +7,7 @@ public class SpawnBall : MonoBehaviour
 {
     public static SpawnBall SB;
 
-    //[SerializeField] private Camera Cam;
+    [SerializeField] private Camera Cam;
     public GameObject player;
     [SerializeField] private GameObject ball;
     [SerializeField] private GameObject cubePrefab;
@@ -30,7 +30,7 @@ public class SpawnBall : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    private void OnEnable()
+    /*private void OnEnable()
     {
         CinemachineCore.CameraUpdatedEvent.RemoveListener(OnCamUpdated);
         CinemachineCore.CameraUpdatedEvent.AddListener(OnCamUpdated);
@@ -46,15 +46,15 @@ public class SpawnBall : MonoBehaviour
 
         Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 5f);
         screenTouch = Cam.ScreenToWorldPoint(mousePos);
-    }
+    }*/
     private void Update()
     {
  
         if (Input.GetMouseButtonDown(0))
         {
             isShot = true;
-            /*Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 5f);
-            Vector3 screenTouch = Cam.ScreenToWorldPoint(mousePos);*/
+            Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 5f);
+            Vector3 screenTouch = Cam.ScreenToWorldPoint(mousePos);
 
             //instantiate cube to aim position
 
