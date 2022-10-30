@@ -7,7 +7,7 @@ public class PlayerMathState : PlayerBaseState
     
     public override void EnterState(PlayerStateManager player)
     {
-        ObjectSpeed.OS.allObjectSpeed = 0f;
+        //ObjectSpeed.OS.allObjectSpeed = 0f;
 
         if (MathManager.MM.score / 20 == 1 || MathManager.MM.score / 20 == 2)
         {
@@ -45,7 +45,8 @@ public class PlayerMathState : PlayerBaseState
             MathManager.MM.isPlus = true;
             MathManager.MM.isPlayAnim = true;
             MathManager.MM.score += 2;
-            player.Cam.transform.Rotate(0, 90, 0);
+            player.clearArea.SetActive(true);
+            // player.Cam.transform.Rotate(0, 90, 0);
             player.SwitchState(player.MoveState);
         }
         else if (MathManager.MM.isTrue == "False" || checkCount == 0)
@@ -55,16 +56,31 @@ public class PlayerMathState : PlayerBaseState
             {
                 MathManager.MM.isPlayAnim = true;
                 MathManager.MM.isPlayCrush = true;
-                MathManager.MM.damageScreen.SetActive(true);
-                MathManager.MM.score -= 10;
-                player.Cam.transform.Rotate(0, 90, 0);
-                player.SwitchState(player.MoveState);
+                
+                
+                
+                HeartUI.HU.health--;
+                // player.Cam.transform.Rotate(0, 90, 0);
+
+                if(HeartUI.HU.health == 0)
+                {
+                    player.SwitchState(player.DieState);
+                }
+                else
+                {
+                    MathManager.MM.score -= 10;
+                    player.clearArea.SetActive(true);
+                    MathManager.MM.damageScreen.SetActive(true);
+                    player.SwitchState(player.MoveState);
+                }
+                
             }
             else
             {
                 player.SwitchState(player.DieState);
             }       
         }
+
 
         MathManager.MM.isTrue = null;
 
@@ -78,6 +94,6 @@ public class PlayerMathState : PlayerBaseState
         player.transform.position = new Vector3(-77.6f, 11.95f, player.transform.position.z);
         player.Cam.transform.Rotate(0, -90, 0);
         UIManager.UI.scoreText.gameObject.SetActive(false);
-        
+        HeartUI.HU.Hearts.gameObject.SetActive(false);
     }
 }

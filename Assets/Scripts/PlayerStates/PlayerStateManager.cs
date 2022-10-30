@@ -8,6 +8,7 @@ public class PlayerStateManager : MonoBehaviour
     public GameObject Cam;
     //public GameObject followWall;
     public int successScore = 3;
+    public GameObject gameOverPanel;
     public GameObject mathRoom;
     public GameObject clearArea;
     public Transform playerLastPOS;

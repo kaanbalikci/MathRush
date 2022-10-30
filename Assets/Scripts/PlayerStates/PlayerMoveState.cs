@@ -8,7 +8,7 @@ public class PlayerMoveState : PlayerBaseState
     private Vector3 answerPOS = new Vector3(-77.6f, 11.95f, -71f);
     public override void EnterState(PlayerStateManager player)
     {
-        ObjectSpeed.OS.allObjectSpeed = 6f;
+        //ObjectSpeed.OS.allObjectSpeed = 100f;
         
     }
 
@@ -42,17 +42,15 @@ public class PlayerMoveState : PlayerBaseState
         }
 
         if (Input.GetMouseButtonDown(0))
-        {
+        { 
             MathManager.MM.score -= 1;
-            /*if ((MathManager.MM.score - 1) % 20 == 0)
-            {
-                MathManager.MM.score -= 2;
-            }
-            else
-            {
-                MathManager.MM.score -= 1;
-            }*/
+          
         }
+        if(MathManager.MM.score == 0)
+        {
+            player.SwitchState(player.DieState);
+        }
+
     
     }
     public override IEnumerator StartState(PlayerStateManager player)
@@ -62,7 +60,13 @@ public class PlayerMoveState : PlayerBaseState
         player.transform.position = player.playerLastPOS.position;
         MathManager.MM.damageScreen.SetActive(false);
         UIManager.UI.scoreText.gameObject.SetActive(true);
-        player.clearArea.SetActive(true);
+        HeartUI.HU.Hearts.gameObject.SetActive(true);
+
+        if (player.Cam.transform.rotation.y != 0)
+        {
+            player.Cam.transform.Rotate(0, 90, 0);
+        }
+        
     }
 
 }

@@ -11,7 +11,7 @@ public class ClearArea : MonoBehaviour
 
     IEnumerator Close()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.4f);
         this.gameObject.SetActive(false);
     }
 

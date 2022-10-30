@@ -6,7 +6,7 @@ public class ObjectSpeed : MonoBehaviour
 {
     public static ObjectSpeed OS;
 
-    [HideInInspector] public float allObjectSpeed = 6f;
+    private float allObjectSpeed = 8f;
 
 
 
