@@ -50,7 +50,7 @@ public class SpawnBall : MonoBehaviour
     private void Update()
     {
  
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && MathManager.MM.cantThrow == true)
         {
             isShot = true;
             Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 5f);

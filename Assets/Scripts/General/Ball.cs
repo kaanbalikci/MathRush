@@ -12,6 +12,7 @@ public class Ball : MonoBehaviour
     [SerializeField] private LayerMask interactable;
 
     public bool canDestroyAnswer;
+    
 
     private void Awake()
     {
@@ -40,7 +41,7 @@ public class Ball : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Diamond"))
         {
-            MathManager.MM.score += 2;
+            MathManager.MM.score += 3;
         }
 
         if (other.gameObject.CompareTag("Answers"))
@@ -60,5 +61,6 @@ public class Ball : MonoBehaviour
 
     }
 
+    
   
 }

@@ -22,6 +22,8 @@ public class MathManager : MonoBehaviour
     public bool isPlayAnim;
     public bool isPlayCrush;
     public bool isPlus;
+    public bool isDie;
+    public bool cantThrow = true;
     public GameObject damageScreen;
 
     [SerializeField] private Transform truePOS;
@@ -35,7 +37,7 @@ public class MathManager : MonoBehaviour
 
     [SerializeField] private TMP_Text question;
 
-    
+
 
     //Answer Text rect transform Z pos
     private float leftZ = -4.347f;
@@ -48,7 +50,7 @@ public class MathManager : MonoBehaviour
     private GameObject trueA;
     private GameObject falseA;
 
-    
+
 
     private void Awake()
     {
@@ -56,14 +58,14 @@ public class MathManager : MonoBehaviour
     }
 
 
-  
+
     void Update()
     {
         UpdateScore?.Invoke(score);
 
         if (countDown > 0)
         {
-            countDown -= Time.deltaTime;      
+            countDown -= Time.deltaTime;
         }
         else
         {
@@ -71,8 +73,16 @@ public class MathManager : MonoBehaviour
         }
         UpdateTime?.Invoke(countDown);
 
-        
-    
+
+        if (score == 0)
+        {
+            StartCoroutine(DieCheck());         
+        }
+        else
+        {
+            cantThrow = true;
+        }
+
     }
 
 
@@ -85,7 +95,7 @@ public class MathManager : MonoBehaviour
         int lastAnswer = firstNumber + secondNumber;
         int lastFalseAnswer = UnityEngine.Random.Range(lastAnswer - 2, lastAnswer + 2);
 
-        if(lastFalseAnswer == lastAnswer)
+        if (lastFalseAnswer == lastAnswer)
         {
             lastFalseAnswer--;
         }
@@ -178,8 +188,8 @@ public class MathManager : MonoBehaviour
     {
         no = UnityEngine.Random.Range(0, 2);
 
-        trueA = Instantiate(trueAnswer,truePOS.position,Quaternion.identity);
-        falseA = Instantiate(falseAnswer,falsePOS.position,Quaternion.identity);
+        trueA = Instantiate(trueAnswer, truePOS.position, Quaternion.identity);
+        falseA = Instantiate(falseAnswer, falsePOS.position, Quaternion.identity);
 
 
         if (no == 0)
@@ -199,7 +209,23 @@ public class MathManager : MonoBehaviour
             falseAnswersText.rectTransform.localPosition = new Vector3(falseAnswersText.transform.localPosition.x, falseAnswersText.transform.localPosition.y, leftZ);
         }
     }
-    
+
+    private IEnumerator DieCheck()
+    {
+        yield return new WaitForSeconds(0.1f);
+        
+        if (MathManager.MM.score == 0)
+        {
+            cantThrow = false;
+        }
+
+        yield return new WaitForSeconds(3f);
+        if (MathManager.MM.score == 0)
+        {
+            Debug.Log("0 puan iceri");
+            isDie = true;
+        }
 
 
+    }
 }

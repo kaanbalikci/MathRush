@@ -41,21 +41,23 @@ public class PlayerMoveState : PlayerBaseState
             
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && MathManager.MM.score != 0)
         { 
             MathManager.MM.score -= 1;
           
         }
-        if(MathManager.MM.score == 0)
+        if(MathManager.MM.isDie == true)
         {
             player.SwitchState(player.DieState);
         }
+        
 
     
     }
     public override IEnumerator StartState(PlayerStateManager player)
     {
 
+        
         yield return new WaitForSeconds(0.4f);
         player.transform.position = player.playerLastPOS.position;
         MathManager.MM.damageScreen.SetActive(false);
